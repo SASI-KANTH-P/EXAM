@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="title">Registered Exams</h1>
+<div method="post" action="{% url 'registerExam' %}" class="container">
+    {% csrf_token %}
+    {% for reg in regExam %}
+    <input type="text" hidden name="username" value="Test user 2" id="">
+    {% if reg.student.studentUser.username == user.username %}
+    <div class="item">
+        <div class="name">
+            <p>{{reg.exam.examName}} ( {{reg.exam.examCode}} )</p>
+        </div>
+        <div class="date">
+            <p>{{reg.exam.examDate}}</p>
+        </div>
+        <!-- <div class="check"> 
+            <input type="checkbox" class="ck" name="{{reg.examCode}}" value="{{ex.is_selected}}" id="">
+        </div> -->
+    </div>
+    {% endif %}
+    {% endfor %}
+    <a type="submit" class="submita" href="{% url 'pdf' %}">Pay fee And Generate Invoice</a>
+    <a type="submit" class="submita" href="{% url 'regAgain' %}">Register for Another Exam</a>
+</div>
+{% endblock %}

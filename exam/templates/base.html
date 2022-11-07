@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'dash2.css' %}">
+    <link rel="stylesheet" href="{% static 'logcss.css' %}">
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="leftnav">
+            <img src="{% static 'departure.png' %}" alt="#" width="30" height="30">
+        </div>
+        <div class="rightnav">
+            {% if  user.is_authenticated %}
+            <input type="text" name="" id="" hidden value="{{user.username}}">
+            <ul>
+                <a href="{% url 'logoutUser' %}"  class="alog"><li class="log">Logout</li></a>
+            </ul>
+            {% else %}
+            <ul>
+                <a href="{% url 'loginUser' %}"  class="alog"><li class="log">Login</li></a>
+            </ul>
+            <ul>
+                <a href="{% url 'registerUser' %}"  class="alog"><li class="log">Register</li></a>
+            </ul>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

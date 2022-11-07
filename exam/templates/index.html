@@ -1,0 +1,46 @@
+{% load static %}
+<!<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<!-- <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}"> -->
+	<link rel="stylesheet" type="text/css" href="./static/style.css">
+</head>
+<body>
+	<div class="box">
+		<!-- <br>
+		<br>
+		<br>
+		<br> -->
+		<h2>EXAM REGISTRATION</h2>
+		<!-- <br>
+		<br>
+		<br>
+		<br> -->
+		<!-- <marquee scrollamount=5 behavior="scroll" loop=3>New user? Click here to <a href="REGISTRATION.html">register</a></marquee><br> -->
+		<div class="container">
+			<form action="action_page.php" method="post" class="form">
+				<div class="inputdiv">
+					<div class="lab">
+					<label for="email">Email</label>
+					</div>
+					<input type="text" name="email" id="email" placeholder="Enter Email"><br>
+				</div>
+
+				<div class="inputdiv">
+					<div class="lab">
+					<label for="pwd">Password</label>
+					</div>
+					<input type="password" name="password" id="pwd" placeholder="Enter Password"><br>
+				</div>
+				<div class="inputdiv">
+				<button type="submit">Login</button>
+				</div>
+				<div class="reglink">
+					<br><h5>Don't have an account..?...<a href="#">Register Now</a></h5>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

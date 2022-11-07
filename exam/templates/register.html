@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="containerlog">
+        <div class="leftlog">
+            <img class="leftimglog" src="../static/2121601.jpg" alt="">
+        </div>
+        <div class="rightreg">
+            <h1>Register New Account</h1>
+            <form method="post" action="{% url 'registerUser' %}">
+                {% csrf_token %}
+                <div class="namelog">
+                    <input type="text" name="name" placeholder="Name">
+                </div>
+                <div class="namelog">
+                    <input type="text" name="username" placeholder="username">
+                </div>
+                <div class="namelog">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="passlog">
+                    <input type="password" name="password" id="" placeholder="password">
+                </div>
+                <div class="passlog">
+                    <input type="password" name="confirm_password" id="" placeholder="Confirm Password">
+                </div>
+                <!-- <input type="password" name="confirm_password" id="" placeholder="Confirm Password"> -->
+                <div class="sublog">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

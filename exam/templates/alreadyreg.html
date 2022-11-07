@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class="title">Choose Exams</h1>
+    <form method="post" action="{% url 'registerExam' %}" class="container">
+        {% csrf_token %}
+        {% for stud in stu %}
+        {% if stud.studentUser.username == user.username %}
+        <input type="text" hidden name="username" value="{{stud.name}}" id="">
+        {% endif %}
+        {% endfor %}
+        {% for ex in exam %}
+        {% if ex.examCode not in excodes %}
+        <div class="item">
+            <div class="name">
+                <p>{{ex.examName}} ( {{ex.examCode}} )</p>
+            </div>
+            <div class="date">
+                <p>{{ex.examDate}}</p>
+            </div>
+            <div class="check"> 
+                <input type="checkbox" class="ck" name="{{ex.examCode}}" value="{{ex.is_selected}}" id="">
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <button type="submit" class="submit">Submit</button>
+    </form>
+{% endblock %}
